@@ -7,7 +7,9 @@
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+<link rel="stylesheet" type="text/css" href="{{URL::to('css/navcss.css')}}">
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
         <title>Laravel</title>
 
@@ -36,54 +38,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-              
-            }
-
-            
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
+       
+     
         </style>
     </head>
     <body style="text-align: center;">
@@ -106,9 +62,9 @@
 
                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
-                          <li class="active"><a href="/">Inicio</a></li>
+                          <li><a href="/">Inicio</a></li>
                                     <li><a href="{{ url('nosotros') }}">Nosotros</a></li>
-                                    <li><a href="#">Catálogo</a></li>
+                                    <li><a href="catalogo">Catálogo</a></li>
                                     <li><a href="{{ url('contactenos') }}">Contáctenos</a></li>
                                     <li><a href="#">Clínicas</a></li>
                                
@@ -136,9 +92,9 @@
 
                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
-                          <li class="active"><a href="/">Inicio</a></li>
+                          <li><a href="/">Inicio</a></li>
                                     <li><a href="{{ url('nosotros') }}">Nosotros</a></li>
-                                    <li><a href="#">Catálogo</a></li>
+                                    <li><a href="catalogo">Catálogo</a></li>
                                     <li><a href="{{ url('contactenos') }}">Contáctenos</a></li>
                                     <li><a href="#">Clínicas</a></li>
                                
@@ -167,9 +123,42 @@
                           <p>Hablando de libertad… lo único que limita la libertad de un animal es la muerte y el hombre.</p>
                           <footer>Pedro Hell Vampire<cite title="Source Title"></cite></footer>
                     </blockquote>
+
+              <a href="{{ url('catalogo') }}"><input type="submit" name=""  class="btn btn-info" value="Ir a Catálogo" style="width: 100px; "> </a>
+              
+
+         
+             
+          
+                  
                     </div>
 
             </div>
+
+       <footer>
+    <div class="footer" id="footer">
+        <div class="container">
+ 
+                    <ul class="social">
+                        <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-pinterest">   </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+                    </ul>
+                
+            
+            <!--/.row--> 
+      
+        <!--/.container--> 
+    </div>
+    <!--/.footer-->
+    </div>
+  
+   
+</footer>
+           
+          
           <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     </body>

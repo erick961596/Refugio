@@ -30,6 +30,12 @@ return view('layouts/contactenos');
 
 });
 
+Route::get('catalogo',
+[
+'uses'=>'AnimalController@getIndex',
+'as'=>'Animal'
+]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
