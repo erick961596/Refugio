@@ -18,5 +18,8 @@ class socialcontroller extends Controller
     	$user=Socialite::diver('facebook')-> user();
 
     	return ($user->getAvatar());
+    
     }
 }
+
+

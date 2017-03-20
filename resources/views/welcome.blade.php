@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
@@ -41,13 +42,10 @@
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
-                height: 100vh;
-                margin: 0;
+              
             }
 
-            .full-height {
-                height: 100vh;
-            }
+            
 
             .flex-center {
                 align-items: center;
@@ -93,8 +91,8 @@
             @if (Route::has('login'))
                 
                     @if (Auth::check())
-                         
-                         <nav class="navbar navbar-default" role="navigation"">
+
+                    <nav class="navbar navbar-inverse" role="navigation"">
 
                             <div class="navbar-header">
                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -103,25 +101,28 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                   </button>
-                                  <a class="navbar-brand" href="#">Refugio Animal</a>
+                                  <a class="navbar-brand" href="{{ url('/') }}">Refugio Animal</a>
                             </div>
 
-
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
-                                    <li class="active"><a href="/">Inicio</a></li>
-                                    <li><a href="#">Nosotros</a></li>
+                          <li class="active"><a href="/">Inicio</a></li>
+                                    <li><a href="{{ url('nosotros') }}">Nosotros</a></li>
                                     <li><a href="#">Catálogo</a></li>
-                                    <li><a href="#">Contáctenos</a></li>
+                                    <li><a href="{{ url('contactenos') }}">Contáctenos</a></li>
                                     <li><a href="#">Clínicas</a></li>
-                                    <li><a href="{{ url('/home') }}">Sesión</a></li>
-                                    
-                                  </ul>
-                            </div>
+                               
+                               </ul>
+                         <ul class="nav navbar-nav navbar-right">
+
+                       <li> <a href="{{ url('/home') }}"><span class="glyphicon glyphicon-log-in"></span> Sesión</a></li>
+                    
+                        </ul>
+                         </div>
+                        </nav>
                          
-                         </nav>
                     @else
-                         <nav class="navbar navbar-default" role="navigation"">
+                         <nav class="navbar navbar-inverse" role="navigation"">
 
                             <div class="navbar-header">
                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -135,10 +136,20 @@
 
                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
+                          <li class="active"><a href="/">Inicio</a></li>
+                                    <li><a href="{{ url('nosotros') }}">Nosotros</a></li>
+                                    <li><a href="#">Catálogo</a></li>
+                                    <li><a href="{{ url('contactenos') }}">Contáctenos</a></li>
+                                    <li><a href="#">Clínicas</a></li>
+                               
+                               </ul>
+                         <ul class="nav navbar-nav navbar-right">
 
-                       <li> <a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Registarse</a></li>
+                       <li> <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="{{ url('/register') }}"> <span class="glyphicon glyphicon-user"> Registarse</a></li>
                         </ul>
+
+                        
                         </div>
                         </nav>
                     @endif
