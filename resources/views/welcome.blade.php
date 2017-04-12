@@ -43,6 +43,19 @@
         </style>
     </head>
     <body style="text-align: center;">
+
+
+  <!--codigo de facebook para las pàgina-->
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=280254842387200";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <!--Fin decodigo de facebook para las pàgina-->
         
             @if (Route::has('login'))
                 
@@ -57,24 +70,46 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                   </button>
-                                  <a class="navbar-brand" href="{{ url('/') }}">Refugio Animal</a>
+                                  <a class="navbar-brand" href="/"><i class="fa fa-paw"></i> Refugio Animal</a> 
                             </div>
 
                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
                           <li><a href="/">Inicio</a></li>
                                     <li><a href="{{ url('nosotros') }}">Nosotros</a></li>
-                                    <li><a href="catalogo">Catálogo</a></li>
+                                    <li><a href="{{ url('catalogo') }}">Catálogo</a></li>
                                     <li><a href="{{ url('contactenos') }}">Contáctenos</a></li>
-                                    <li><a href="#">Clínicas</a></li>
+                                    <li><a href="{{ url('veterinarias') }}">Veterinarias</a></li>
                                
                                </ul>
                          <ul class="nav navbar-nav navbar-right">
+                       
+                      
+                     <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
 
-                       <li> <a href="{{ url('/home') }}"><span class="glyphicon glyphicon-log-in"></span> Sesión</a></li>
-                    
+                                
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                          </div>
+
+                        
                         </nav>
                          
                     @else
@@ -87,22 +122,23 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                   </button>
-                                  <a class="navbar-brand" href="#">Refugio Animal</a>
+
+                                  <a class="navbar-brand" href="/"><i class="fa fa-paw "></i> Refugio Animal</a>  
                             </div>
 
                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
                           <li><a href="/">Inicio</a></li>
                                     <li><a href="{{ url('nosotros') }}">Nosotros</a></li>
-                                    <li><a href="catalogo">Catálogo</a></li>
+                                    <li><a href="{{ url('catalogo') }}">Catálogo</a></li>
                                     <li><a href="{{ url('contactenos') }}">Contáctenos</a></li>
-                                    <li><a href="#">Clínicas</a></li>
+                                    <li><a href="{{ url('veterinarias') }}">Veterinarias</a></li>
                                
                                </ul>
                          <ul class="nav navbar-nav navbar-right">
 
                        <li> <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        <li><a href="{{ url('/register') }}"> <span class="glyphicon glyphicon-user"> Registarse</a></li>
+                    
                         </ul>
 
                         
@@ -111,7 +147,9 @@
                     @endif
                 
             @endif
-
+                  @if(Session::has('flash_message'))
+                      <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+                  @endif
            
 
              <div class="row">
@@ -134,31 +172,53 @@
                     </div>
 
             </div>
-
-       <footer>
-    <div class="footer" id="footer">
-        <div class="container">
  
-                    <ul class="social">
-                        <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fa fa-pinterest">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
-                    </ul>
-                
-            
-            <!--/.row--> 
+    
+    <div class="container-fluid" style="margin-top: 10%">
       
-        <!--/.container--> 
-    </div>
-    <!--/.footer-->
-    </div>
-  
+      <div class="col-md-4">
    
-</footer>
-           
-          
+    <i class="fa fa-child" aria-hidden="true" style="font-size: 75px; display: inline-block;"></i>
+    <h1><small>Titulo de ejemplo</small></h1>
+    <span>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </span>
+  </div>
+
+  <div class="col-md-4" style="text-align: center;">
+   <i class="fa fa-mobile" aria-hidden="true" style="font-size: 75px; display: inline-block;"></i>
+   <h1><small>Titulo de ejemplo</small></h1>
+      <span>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </span>
+    
+  </div>
+
+  <div class="col-md-4" style="height: 500px;">
+  <i class="fa fa-facebook-square" aria-hidden="true" style="font-size: 75px; display: inline-block;"></i>
+    <h1><small>Titulo de ejemplo</small></h1>
+  <div class="fb-page" data-href="https://www.facebook.com/Refugio-Animal-399568980426569/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Refugio-Animal-399568980426569/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Refugio-Animal-399568980426569/">Refugio Animal</a></blockquote></div>
+  </div>
+
+    </div>
+ 
+  
+ 
+
           <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     </body>

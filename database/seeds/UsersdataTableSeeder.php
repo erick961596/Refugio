@@ -12,7 +12,7 @@ class UsersdataTableSeeder extends Seeder
     public function run()
     {
         
-		DB::table('users')->insert([
+		/*DB::table('users')->insert([
 			[
 				"name"=>"Erick",
 				"email"=>"erick.perezrayo54@gmail.com",
@@ -20,7 +20,7 @@ class UsersdataTableSeeder extends Seeder
 			]
 
 
-		]);
+		]);*/
 
     }
 }

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap-social.css')}}">
+<script src="https://use.fontawesome.com/73aac75665.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -57,9 +59,8 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
-
-                                <a class="btn btn-link" href="redirect">
-                                    Facebook
+                                <a class="btn btn-social btn-facebook" href="auth/facebook">
+                                    <span class="fa fa-facebook"></span> Sign in with Facebook
                                 </a>
                             </div>
                         </div>
